@@ -133,4 +133,5 @@ resource "azurerm_lb_rule" "azlb" {
   idle_timeout_in_minutes        = 5
   probe_id                       = element(azurerm_lb_probe.azlb[*].id, count.index)
 }
+
 */
