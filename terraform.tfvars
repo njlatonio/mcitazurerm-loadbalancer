@@ -1,2 +1,2 @@
-resource_group_name = "dummy"
+resource_group_name = "MCITresources"
 location = "Canada Central"
