@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "test_2" {
   name     = "example-lb-${random_id.rg_name_2.hex}"
 }
 
-module "network" {
+module "network_2" {
   source                  = "Azure/network/azurerm"
   version                 = "4.2.0"
   resource_group_name     = azurerm_resource_group.test_2.name
@@ -22,10 +22,10 @@ module "network" {
     costcenter  = "it"
   }
 
-  depends_on = [azurerm_resource_group.test]
+  depends_on = [azurerm_resource_group.test_2]
 }
 
-module "mylb" {
+module "mylb_2" {
   source                                 = "../.."
   resource_group_name                    = azurerm_resource_group.test.name_2
   type                                   = "private"
@@ -58,5 +58,5 @@ module "mylb" {
     source      = "terraform"
   }
 
-  depends_on = [module.network]
+  depends_on = [module.network_2]
 }
