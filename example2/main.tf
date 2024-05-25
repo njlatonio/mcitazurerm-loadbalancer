@@ -2,7 +2,7 @@ resource "random_id" "rg_name" {
   byte_length = 8
 }
 
-resource "azurerm_resource_group" "test" {
+resource "azurerm_resource_group" "test_2" {
   location = var.location
   name     = "example-lb-${random_id.rg_name.hex}"
 }
@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "test" {
 module "network" {
   source                  = "Azure/network/azurerm"
   version                 = "4.2.0"
-  resource_group_name     = azurerm_resource_group.test.name
+  resource_group_name     = azurerm_resource_group.test_2.name
   address_space           = "10.0.0.0/16"
   resource_group_location = var.location
   subnet_prefixes         = ["10.0.1.0/24"]
@@ -27,7 +27,7 @@ module "network" {
 
 module "mylb" {
   source                                 = "../.."
-  resource_group_name                    = azurerm_resource_group.test.name
+  resource_group_name                    = azurerm_resource_group.test.name_2
   type                                   = "private"
   frontend_vnet_name                     = "accvnet1"
   frontend_subnet_name                   = "subnet1"
