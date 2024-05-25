@@ -17,6 +17,10 @@ variable "resource_group_name" {
   description = "(Required) The name of the resource group where the load balancer resources will be imported."
 }
 
+variable "location"{
+  type=string
+}
+
 variable "allocation_method" {
   type        = string
   default     = "Static"
