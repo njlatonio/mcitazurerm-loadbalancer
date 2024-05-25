@@ -1,10 +1,10 @@
-resource "random_id" "rg_name" {
+resource "random_id" "rg_name_2" {
   byte_length = 8
 }
 
 resource "azurerm_resource_group" "test_2" {
   location = var.location
-  name     = "example-lb-${random_id.rg_name.hex}"
+  name     = "example-lb-${random_id.rg_name_2.hex}"
 }
 
 module "network" {
