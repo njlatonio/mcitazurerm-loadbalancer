@@ -26,7 +26,7 @@ module "network_2" {
 }
 
 module "mylb_2" {
-  source                                 = "../.."
+  source                                 = "Azure/loadbalancer/azurerm"
   resource_group_name                    = azurerm_resource_group.test.name_2
   type                                   = "private"
   frontend_vnet_name                     = "accvnet1"
