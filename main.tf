@@ -67,9 +67,9 @@ resource "azurerm_lb" "azlb" {
     avm_git_org              = "Azure"
     avm_git_repo             = "terraform-azurerm-loadbalancer"
     avm_yor_trace            = "94f04f8b-b6ac-42d4-8e4a-b564ea9657ab"
-    } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/), (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
+#    } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/), (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
     avm_yor_name = "azlb"
-  } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
+#  } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
 
   frontend_ip_configuration {
     name                          = var.frontend_name
