@@ -40,7 +40,7 @@ resource "azurerm_public_ip" "azlb" {
   reverse_fqdn            = var.pip_reverse_fqdn
   sku                     = var.pip_sku
   sku_tier                = var.pip_sku_tier
-  tags = merge(var.tags, (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
+#  tags = merge(var.tags, (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
     avm_git_commit           = "d8466522dbee909d833e8f6c51c4c7ec587496d5"
     avm_git_file             = "main.tf"
     avm_git_last_modified_at = "2023-01-16 05:50:14"
