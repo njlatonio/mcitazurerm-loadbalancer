@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "example" {
 
 # Azure load balancer module
 data "azurerm_resource_group" "azlb" {
-  name = var.resource_group_name
+  name = azurerm_resource_group.example
 }
 
 data "azurerm_subnet" "snet" {
