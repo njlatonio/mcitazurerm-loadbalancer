@@ -14,7 +14,6 @@ variable "tenant_id"{
 
 variable "resource_group_name" {
   type=string
-  default="azlb"
   description = "(Required) The name of the resource group where the load balancer resources will be imported."
 }
 
