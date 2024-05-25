@@ -1,5 +1,3 @@
-/*
-
 resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name
   location = var.location
@@ -40,7 +38,7 @@ resource "azurerm_public_ip" "azlb" {
   reverse_fqdn            = var.pip_reverse_fqdn
   sku                     = var.pip_sku
   sku_tier                = var.pip_sku_tier
-#  tags = merge(var.tags, (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
+  tags = merge(var.tags, (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
     avm_git_commit           = "d8466522dbee909d833e8f6c51c4c7ec587496d5"
     avm_git_file             = "main.tf"
     avm_git_last_modified_at = "2023-01-16 05:50:14"
@@ -67,9 +65,9 @@ resource "azurerm_lb" "azlb" {
     avm_git_org              = "Azure"
     avm_git_repo             = "terraform-azurerm-loadbalancer"
     avm_yor_trace            = "94f04f8b-b6ac-42d4-8e4a-b564ea9657ab"
-#    } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/), (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
+    } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/), (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
     avm_yor_name = "azlb"
-#  } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
+  } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
 
   frontend_ip_configuration {
     name                          = var.frontend_name
@@ -134,4 +132,4 @@ resource "azurerm_lb_rule" "azlb" {
   probe_id                       = element(azurerm_lb_probe.azlb[*].id, count.index)
 }
 
-*/
+
